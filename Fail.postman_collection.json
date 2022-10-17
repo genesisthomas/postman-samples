@@ -1,0 +1,52 @@
+{
+	"info": {
+		"_postman_id": "07c466ea-83b5-4c89-be74-e1c936aaa358",
+		"name": "Fail",
+		"description": "A sample collection to demonstrate collections as a set of related requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1394354"
+	},
+	"item": [
+		{
+			"name": "Newman: GET request - fail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('expect response be 200', function () {",
+							"    pm.response.to.be.badRequest",
+							"})",
+							"pm.test('expect response json contain args', function () {",
+							"    pm.expect(pm.response.json().args).to.have.property('source')",
+							"      .and.equal('newman-sample-github-collection')",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{base_url}}/get?source=newman-sample-github-collection",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "newman-sample-github-collection"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

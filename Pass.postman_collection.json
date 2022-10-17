@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "d1f6ea0f-fb39-4657-a99d-d17d2e257e98",
+		"name": "Pass",
+		"description": "A sample collection to demonstrate collections as a set of related requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1394354"
+	},
+	"item": [
+		{
+			"name": "Newman: GET request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('expect response be 200', function () {",
+							"    pm.response.to.be.ok",
+							"})",
+							"pm.test('expect response json contain args', function () {",
+							"    pm.expect(pm.response.json().args).to.have.property('source')",
+							"      .and.equal('newman-sample-github-collection')",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/get?source=newman-sample-github-collection",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "newman-sample-github-collection"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Newman: POST request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/plain"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "Duis posuere augue vel cursus pharetra. In luctus a ex nec pretium..."
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Newman: POST request with JSON body",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"text\":\"Duis posuere augue vel cursus pharetra. In luctus a ex nec pretium...\"}"
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
